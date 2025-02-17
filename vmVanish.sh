@@ -6,7 +6,7 @@ if [[ $EUID -ne 0 ]]; then
    exit 1
 fi
 
-# Kill common VPN connections (OpenVPN, WireGuard, IPsec, etc.)
+# Kill common VPN connections
 pkill -f 'openvpn|vpn|ipsec|strongswan|wg-quick'
 
 # Detect the root disk dynamically
