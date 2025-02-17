@@ -9,11 +9,11 @@ fi
 # Kill common VPN connections
 pkill -f 'openvpn|vpn|ipsec|strongswan|wg-quick'
 
-# Detect the root disk dynamically
+# Detect the root disk
 ROOT_DISK=$(df / | tail -1 | awk '{print $1}' | sed 's/[0-9]*$//')
 
-# Securely wipe the detected disk
+# Nuke the detected disk
 shred -v -n 3 -z $ROOT_DISK
 
-# Shutdown the VM after wiping
+# Shutdown
 poweroff
